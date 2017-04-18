@@ -1,9 +1,14 @@
-# api documentation for  [grunt-webfont (v1.6.0)](https://github.com/sapegin/grunt-webfont)  [![npm package](https://img.shields.io/npm/v/npmdoc-grunt-webfont.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-grunt-webfont) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-grunt-webfont.svg)](https://travis-ci.org/npmdoc/node-npmdoc-grunt-webfont)
+# npmdoc-grunt-webfont
+
+#### api documentation for  [grunt-webfont (v1.6.0)](https://github.com/sapegin/grunt-webfont)  [![npm package](https://img.shields.io/npm/v/npmdoc-grunt-webfont.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-grunt-webfont) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-grunt-webfont.svg)](https://travis-ci.org/npmdoc/node-npmdoc-grunt-webfont)
+
 #### Ultimate SVG to webfont converter for Grunt.
 
-[![NPM](https://nodei.co/npm/grunt-webfont.png?downloads=true)](https://www.npmjs.com/package/grunt-webfont)
+[![NPM](https://nodei.co/npm/grunt-webfont.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/grunt-webfont)
 
-[![apidoc](https://npmdoc.github.io/node-npmdoc-grunt-webfont/build/screenCapture.buildNpmdoc.browser._2Fhome_2Ftravis_2Fbuild_2Fnpmdoc_2Fnode-npmdoc-grunt-webfont_2Ftmp_2Fbuild_2Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-grunt-webfont/build/apidoc.html)
+- [https://npmdoc.github.io/node-npmdoc-grunt-webfont/build/apidoc.html](https://npmdoc.github.io/node-npmdoc-grunt-webfont/build/apidoc.html)
+
+[![apidoc](https://npmdoc.github.io/node-npmdoc-grunt-webfont/build/screenCapture.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-grunt-webfont/build/apidoc.html)
 
 ![npmPackageListing](https://npmdoc.github.io/node-npmdoc-grunt-webfont/build/screenCapture.npmPackageListing.svg)
 
@@ -88,8 +93,7 @@
     "main": "tasks/webfont.js",
     "maintainers": [
         {
-            "name": "sapegin",
-            "email": "artem@sapegin.ru"
+            "name": "sapegin"
         }
     ],
     "name": "grunt-webfont",
@@ -97,7 +101,6 @@
     "peerDependencies": {
         "grunt": ">=0.4.0"
     },
-    "readme": "ERROR: No README data found!",
     "repository": {
         "type": "git",
         "url": "git://github.com/sapegin/grunt-webfont.git"
@@ -108,16 +111,6 @@
     "version": "1.6.0"
 }
 ```
-
-
-
-# <a name="apidoc.tableOfContents"></a>[table of contents](#apidoc.tableOfContents)
-
-#### [module grunt-webfont](#apidoc.module.grunt-webfont)
-
-
-
-# <a name="apidoc.module.grunt-webfont"></a>[module grunt-webfont](#apidoc.module.grunt-webfont)
 
 
 

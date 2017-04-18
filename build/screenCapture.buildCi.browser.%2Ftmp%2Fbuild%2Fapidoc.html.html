@@ -1,4 +1,4 @@
-<div class="apidocDiv">
+<html><head></head><body><div class="apidocDiv">
 <style>
 /*csslint
 */
@@ -47,17 +47,10 @@
 }
 </style>
 <h1>api documentation for
-    <a
-
-        href="https://github.com/sapegin/grunt-webfont"
-
-    >grunt-webfont (v1.6.0)</a>
+    <a href="https://github.com/sapegin/grunt-webfont">grunt-webfont (v1.6.0)</a>
 </h1>
 <h4>Ultimate SVG to webfont converter for Grunt.</h4>
-<div class="apidocSectionDiv"><a
-    href="#apidoc.tableOfContents"
-    id="apidoc.tableOfContents"
-><h1>table of contents</h1></a><ol>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
 
     <li class="apidocModuleLi"><a href="#apidoc.module.grunt-webfont">module grunt-webfont</a><ol>
 
@@ -86,21 +79,21 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">grunt-webfont = function (grunt) {
-	&#x27;use strict&#x27;;
+	'use strict';
 
-	var fs = require(&#x27;fs&#x27;);
-	var path = require(&#x27;path&#x27;);
-	var async = require(&#x27;async&#x27;);
-	var glob = require(&#x27;glob&#x27;);
-	var chalk = require(&#x27;chalk&#x27;);
-	var mkdirp = require(&#x27;mkdirp&#x27;);
-	var crypto = require(&#x27;crypto&#x27;);
-	var ttf2woff2 = require(&#x27;ttf2woff2&#x27;);
-	var _ = require(&#x27;lodash&#x27;);
-	var _s = require(&#x27;underscore.string&#x27;);
-	var wf = require(&#x27;./util/util&#x27;);
+	var fs = require('fs');
+	var path = require('path');
+	var async = require('async');
+	var glob = require('glob');
+	var chalk = require('chalk');
+	var mkdirp = require('mkdirp');
+	var crypto = require('crypto');
+	var ttf2woff2 = require('ttf2woff2');
+	var _ = require('lodash');
+	var _s = require('underscore.string');
+	var wf = require('./util/util');
 
-	grunt.registerMultiTask(&#x27;webfont&#x27;, &#x27;Compile separate SVG files to webfont&#x27;, function() {
+	grunt.registerMultiTask('webfont', 'Compile separate SVG files to webfont', function() {
 
 		<span class="apidocCodeCommentSpan">/**
 		 * Winston to Grunt logger adapter.
@@ -123,19 +116,19 @@
 		var allDone = this.async();
 		var params = this.data;
 		var options = this.options();
-		var md5 = crypto.createHash(&#x27;md5&#x27;);
+		var md5 = crypto.createHash('md5');
 
 		/*
 		 * Check for `src` param on target config
 		 */
-		this.requiresConfig([this.name, this.target, &#x27;src&#x27;].join(&#x27;.&#x27;));
+		this.requiresConfig([this.name, this.target, 'src'].join('.'));
 
 		/*
 		 * Check for `dest` param on either target config or global options object
 		 */
-		if (_.isUndefined(params.dest) &#x26;&#x26; _.isUndefined(options.dest)) {
-			logger.warn(&#x27;Required property &#x27; + [this.name, this.target, &#x27;dest&#x27;].join(&#x27;.&#x27;)
-				+ &#x27; or &#x27; + [this.name, this.target, &#x27;options.dest&#x27;].join(&#x27;.&#x27;) + &#x27; missing.&#x27;);
+		if (_.isUndefined(params.dest) &amp;&amp; _.isUndefined(options.dest)) {
+			logger.warn('Required property ' + [this.name, this.target, 'dest'].join('.')
+				+ ' or ' + [this.name, this.target, 'options.dest'].join('.') + ' missing.');
 		}
 
 		if (options.skip) {
@@ -146,20 +139,20 @@
 		// Source files
 		var files = _.filter(this.filesSrc, isSvgFile);
 		if (!files.length) {
-			logger.warn(&#x27;Specified empty list of source SVG files.&#x27;);
+			logger.warn('Specified empty list of source SVG files.');
 			completeTask();
 			return;
 		}
 
 		// path must be a string, see https://nodejs.org/api/path.html#path_path_extname_path
-		if (typeof options.template !== &#x27;string&#x27;) {
-			options.template = &#x27;&#x27;;
+		if (typeof options.template !== 'string') {
+			options.template = '';
 		}
 
 		// Options
 		var o = {
 			logger: logger,
-			fontBaseName: options.font || &#x27;icons&#x27;,
+			fontBaseName: options.font || 'icons',
 			destCss: options.destCss || params.destCss || params.dest,
 			destScss: options.destScss || params.destScss || params.destCss || params.dest,
 			destSass: options.destSass || params.destSass || params.destCss || params.dest,
@@ -170,18 +163,18 @@
 			addHashes: options.hashes !== false,
 			addLigatures: options.ligatures === true,
 			template: options.template,
-			syntax: options.syntax || &#x27;bem&#x27;,
+			syntax: options.syntax || 'bem',
 			templateOptions: options.templateOptions || {},
-			stylesheets: options.stylesheets || [options.stylesheet || path.extname(options.template).replace(/^\./, &#x27;&#x27;) || &#x27;css&#x27;],
+			stylesheets: options.stylesheets || [options.stylesheet || path.extname(options.template).replace(/^\./, '') || 'css'],
 			htmlDemo: options.htmlDemo !== false,
 			htmlDemoTemplate: options.htmlDemoTemplate,
 			htmlDemoFilename: options.htmlDemoFilename,
-			styles: optionToArray(options.styles, &#x27;font,icon&#x27;),
-			types: optionToArray(options.types, &#x27;eot,woff,ttf&#x27;),
+			styles: optionToArray(options.styles, 'font,icon'),
+			types: optionToArray(options.types, 'eot,woff,ttf'),
 			order: optionToArray(options.order, wf.fontFormats),
-			embed: options.embed === true ? [&#x27;woff&#x27;] : optionToArray(options.embed, false),
+			embed: options.embed === true ? ['woff'] : optionToArray(options.embed, false),
 			rename: options.rename || path.basename,
-			engine: options.engine || &#x27;fontforge&#x27;,
+			engine: options.engine || 'fontforge',
 			autoHint: options.autoHint !== false,
 			codepoints: options.codepoints,
 			codepointsFile: options.codepointsFile,
@@ -193,7 +186,7 @@
 			fontHeight: options.fontHeight !== undefined ? options.fontHeight : 512,
 			descent: options.descent !== undefined ? options.descent : 64,
 			version: options.version !== undefined ? options.version : false,
-			cache: options.cache || path.join(__dirname, &#x27;..&#x27;, &#x27;.cache&#x27;),
+			cache: options.cache || path.join(__dirname, '..', '.cache'),
 			callback: options.callback,
 			customOutputs: options.customOutputs,
 			execMaxBuffer: options.execMaxBuffer || 1024 * 200
@@ -217,3 +210,4 @@
     ]
 </div>
 </div>
+</body></html>
